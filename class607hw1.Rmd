@@ -1,0 +1,43 @@
+#Amilka Diaz
+# Introduction, 
+## I chose to go with an article on obesity.I think data like this is important to see how the health of our society is progressing
+###https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition
+## first i'd like to see if there is a correlation with having a family history of overweightness and weight
+
+library(tidyverse)
+library(openintro)
+obesity
+
+ggplot(
+data = obesity,
+mapping = aes(x = family_history_with_overweight , y = Weight)
+) + geom_boxplot() + labs(
+title = "Family History of Overweightness and Weight"
+)
+#next I wanted to check how many participants of each gender there were
+
+ggplot(obesity, aes(x = Gender)) +
+geom_bar() + labs(
+title = "Gender of Study Participants"
+)
+
+#Next I wanted to filter everyone who answers yes to a family history of obesity but wanted to make it easier for me to type out
+
+library(dplyr)
+obesity <- obesity%>% rename(familyhistory = family_history_with_overweight)
+
+obesity |>
+  filter(familyhistory == 'yes')
+#next I wanted to filter by family history and male gender
+
+obesity |>
+  filter(familyhistory == 'yes' & Gender == 'Male')
+
+#I then wanted to see if there was a correlation between family history of overweightness and gender
+
+ggplot(
+data = obesity,
+aes(x = familyhistory, color=Gender)) + geom_bar()
+#conclusion
+#It seems to me thqt there is a correlation with weight & familyhistory of obesity. I'd like to sharpen my skills and be able to clearly see how the data adds up with smokers, modes of transportation and by gender.
+#the original data will be on github

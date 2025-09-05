@@ -6,7 +6,8 @@
 
 library(tidyverse)
 library(openintro)
-obesity
+library(readr)
+obesity <- read_csv("https://raw.githubusercontent.com/AmilkaD/hw1/refs/heads/main/obesity.csv")
 
 ggplot(
 data = obesity,
@@ -41,3 +42,4 @@ aes(x = familyhistory, color=Gender)) + geom_bar()
 #conclusion
 #It seems to me thqt there is a correlation with weight & familyhistory of obesity. I'd like to sharpen my skills and be able to clearly see how the data adds up with smokers, modes of transportation and by gender.
 #the original data will be on github
+
